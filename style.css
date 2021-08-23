@@ -2,11 +2,14 @@ html{
     padding: 0;
     margin: 0;
 }
-
+ 
 
 body{
     margin: 0;
 	padding: 7% 15% 5% 15%;
+    max-width: 100%;
+    max-height: 100%;
+    
 }
 
 body::after{
@@ -29,31 +32,34 @@ body::after{
 
 .flex-container{
     display: flex;
-    flex-flow: column wrap;
+    flex: 1;
+    flex-flow: row wrap;
     justify-content: center;
     align-content: center;
     overflow: hidden;
     margin: auto;
-    height: 400px;
+    max-height: 400px;
     border: 2px solid white;
 } 
 
 .flex-container:hover{
-    background-color: rgba(255, 229, 176, 0.5);
+    background-color: rgba(255, 229, 176, 0.3);
 }
 .flex-container:hover .leaves img:nth-child(2n){
     display: inline-flex;
     position: relative;
     animation: leaves 5s 1; 
+    animation-fill-mode: forwards;
     
 }
 
 .flex-container:hover .leaves:first-child{
-    display: inline-flex;
+    display: inline-flex; 
     position: relative;
     /* animation-delay: 3s; */
-    animation: leaves 5s 1; 
+    animation: leaves 10s 1; 
     animation-fill-mode: forwards;
+    
 }
 
 .leaves{
@@ -78,15 +84,33 @@ body::after{
 }*/
 
 h1{
+    
     text-align: center;
-   font-family: 'Just another hand', cursive;
-   font-size: 90px;
-   margin: 0;
-   padding:0;
-}
+    font-family: 'Just another hand', cursive;
+    font-size: 90px;
+    margin-top: 5%;
+    margin-bottom: 0;
+    padding:0;
+    flex-shrink: inherit;
+    width: 100%;
+    }
 
 h3{
     text-align: center;
     font-family: sofia, cursive;
     font-size: 30px;
+    width:100%;
+    margin-bottom: 5%;
+}
+
+@media screen and (max-width: 800px) {
+	.leaves, h1, h3 {
+		flex: 100%;
+	}
+    h1 {
+        font-size: 12vw;
+    }
+    h3 {
+        font-size: 6vw;
+    }
 }
